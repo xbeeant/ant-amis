@@ -1,0 +1,89 @@
+.is-fixed {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+// 默认的边框色
+@editor-border-color: #e8e9eb;
+@header-height: 40px;
+
+.container {
+  position: relative;
+  height: 100vh;
+  min-height: 510px;
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    flex: 0 0 48px;
+    position: relative;
+    background: #fff;
+    display: flex;
+    z-index: 1000;
+    height: @header-height;
+
+    .title {
+      flex: 1 1 565px;
+      padding: 0 15px;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0;
+      user-select: none;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .view-mode-container {
+      flex: 0 1 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .view {
+        font-size: 14px;
+        // color: #fff;
+        letter-spacing: 0;
+        text-align: center;
+        width: 100px;
+        height: 32px;
+        border-radius: 4px;
+        font-weight: 400;
+        background-color: #f2f2f4;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .actions {
+      flex: 1 1 565px;
+      padding: 0 24px;
+      font-size: 12px;
+      white-space: nowrap;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+
+  .inner {
+    position: relative;
+    flex: 1 1 auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    :global {
+      .editor-left-panel {
+        //height: calc(100vh - @header-height);
+        //overflow-y: auto;
+      }
+      .ae-Preview {
+        height: calc(100vh - @header-height);
+        overflow-y: auto;
+      }
+    }
+  }
+}
