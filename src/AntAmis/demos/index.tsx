@@ -13,6 +13,7 @@ import 'amis/lib/themes/antd.css';
 import 'amis/lib/themes/default.css';
 import 'amis/sdk/iconfont.css';
 import { AntButtonPlugin } from 'ant-amis/AntAmis/Button/AntButtonPlugin';
+import { AntFloatButtonPlugin } from 'ant-amis/AntAmis/FloatButton/AntFloatButtonPlugin';
 import { Button } from 'antd';
 import React, { useState } from 'react';
 import config from './config';
@@ -20,16 +21,16 @@ import config from './config';
 setDefaultTheme('antd');
 
 registerEditorPlugin(AntButtonPlugin);
+// registerEditorPlugin(AntAffixPlugin);
+registerEditorPlugin(AntFloatButtonPlugin);
 
 const AmisEditor = ({
   value,
   onChange,
-  onSave,
   mode,
 }: {
   value?: any;
   onChange?: (value: any) => void;
-  onSave: (value: any) => void;
   mode?: boolean;
 }) => {
   const [preview, setPreview] = useState<boolean>(mode || false);
@@ -137,7 +138,7 @@ const AmisEditor = ({
               type="primary"
               style={{ marginRight: '10px' }}
               onClick={() => {
-                onSave(value);
+                console.log(value);
               }}
               icon={<SaveOutlined />}
             />
@@ -158,16 +159,11 @@ const AmisEditor = ({
           preview={preview}
           value={value}
           onChange={(value: any) => {
-            if (onChange) {
-              onChange(value);
-            }
+            console.log(value);
           }}
           // $schemaUrl={schemaUrl}
           onSave={() => {
             console.log(value);
-            if (onChange) {
-              onChange(value);
-            }
           }}
           style={{
             bottom: 0,

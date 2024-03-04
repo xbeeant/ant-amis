@@ -4,14 +4,11 @@ import { Button } from 'antd';
 import React from 'react';
 
 const AntButton = (props: any) => {
-  // @ts-ignore
-  const { text, type: amisType, _type, ...extraProps } = props;
+  const {
+    ant: { text, extraAntProps },
+  } = props;
 
-  return (
-    <Button type={_type} {...extraProps}>
-      {text}
-    </Button>
-  );
+  return <Button {...extraAntProps}>{text}</Button>;
 };
 
 export default Renderer({

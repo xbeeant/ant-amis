@@ -32,14 +32,26 @@ export class AntButtonPlugin extends BasePlugin {
   // 拖入组件里面时的初始数据
   scaffold = {
     type: Ant_Button_Plugin,
-    block: false,
-    text: '按钮',
-    size: 'middle',
-    _type: 'default',
+    ant: {
+      block: false,
+      text: '按钮',
+      size: 'middle',
+      type: 'default',
+    },
   };
 
   // 右侧面板相关
   panelTitle = 'Ant Design';
+
+  // 快速配置
+  popOverBody = [
+    {
+      name: 'ant.text',
+      label: 'Text',
+      type: 'input-text',
+    },
+  ];
+
   panelBody = [
     {
       type: 'tabs',
@@ -51,17 +63,17 @@ export class AntButtonPlugin extends BasePlugin {
           title: '常规',
           body: [
             {
-              name: 'text',
+              name: 'ant.text',
               label: 'Text',
               type: 'input-text',
             },
             {
-              name: 'href',
+              name: 'ant.href',
               label: '点击跳转的地址',
               type: 'input-text',
             },
             {
-              name: 'target',
+              name: 'ant.target',
               label: 'a 链接的 target 属性',
               type: 'input-text',
             },
@@ -71,32 +83,32 @@ export class AntButtonPlugin extends BasePlugin {
           title: '外观',
           body: [
             {
-              name: 'block',
+              name: 'ant.block',
               label: '是否块级元素',
               type: 'switch',
             },
             {
-              name: 'classNames',
+              name: 'ant.classNames',
               label: 'class',
               type: 'input-text',
             },
             {
-              name: 'danger',
+              name: 'ant.danger',
               label: '危险按钮',
               type: 'switch',
             },
             {
-              name: 'disabled',
+              name: 'ant.disabled',
               label: '是否禁用',
               type: 'switch',
             },
             {
-              name: 'ghost',
+              name: 'ant.ghost',
               label: '幽灵按钮',
               type: 'switch',
             },
             {
-              name: 'size',
+              name: 'ant.size',
               label: '按钮大小',
               type: 'select',
               options: [
@@ -115,7 +127,7 @@ export class AntButtonPlugin extends BasePlugin {
               ],
             },
             {
-              name: 'shape',
+              name: 'ant.shape',
               label: '形状',
               type: 'select',
               options: [
@@ -134,7 +146,7 @@ export class AntButtonPlugin extends BasePlugin {
               ],
             },
             {
-              name: '_type',
+              name: 'ant.type',
               label: '按钮类型',
               type: 'select',
               options: [
@@ -161,11 +173,15 @@ export class AntButtonPlugin extends BasePlugin {
               ],
             },
             {
-              name: 'htmlType',
+              name: 'ant.htmlType',
               label: '原生的 type 值',
               type: 'input-text',
             },
           ],
+        },
+        {
+          title: '事件',
+          body: [],
         },
       ],
     },
